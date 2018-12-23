@@ -1,18 +1,42 @@
 <template>
-    <div class="yuan-ace-editor-container">
-        <h1>{{ msg }}</h1>
+    <div :id="editorId">
     </div>
 </template>
 
 <script lang="ts">
     import {Component, Prop, Vue} from 'vue-property-decorator';
+    import * as ace from 'brace';
+
+    const defaultConfig = ({
+        lang = 'json',
+        theme = 'xcode',
+        options = {
+           useSoftTabs: true,
+           tabSize: 4
+        },
+    }) => ({
+        lang,
+        theme,
+        options: Object.assign({} , options , options),
+    });
 
     @Component
     export default class HelloWorld extends Vue {
         @Prop({
-            default: 'haha'
+            default: 'yuan-ace-editor-container',
+            type: String
         })
-        private msg!: string;
+        private editorId!: string;
+
+        public $ace;
+
+        public mounted() {
+            this.$ace = ace.edit(this.editorId);
+
+            require(`brace/mode/javascript`);
+            require(`brace/theme/xcode`);
+            require(`brace/ext/emmet`);
+        }
     }
 </script>
 
