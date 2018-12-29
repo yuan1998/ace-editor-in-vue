@@ -30,9 +30,9 @@ npm install vue-editor-ace --save
         }
     }
     ```
-    prop `v-model` and `config` is required.  
+    prop `v-model` and `config` is required. [other `config` option check this](#config-options)    
     tips: `AceEditor` default is `height: 100%` `width:100%`.you can add `wrapper` limit component size.  
-    [other `config` options check this](#config-options)  
+   
     
     ```vue
     <div style="height:100px;width: 100px;">
