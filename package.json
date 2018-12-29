@@ -1,6 +1,6 @@
 {
   "name": "vue-editor-ace",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Ace Editor Of Vue.",
   "author": "yuan1998 <chizhiyueshu@gmail.com>",
   "main": "./dist/vueAceEditor.common.js",
@@ -26,5 +26,13 @@
     "less-loader": "^4.1.0",
     "typescript": "^3.2.2",
     "vue-template-compiler": "^2.5.17"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuan1998/ace-editor-in-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuan1998/ace-editor-in-vue/issues"
+  },
+  "homepage": "https://github.com/yuan1998/ace-editor-in-vue#readme"
 }
