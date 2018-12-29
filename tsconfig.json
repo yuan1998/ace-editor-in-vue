@@ -1,39 +1,44 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es7"
+    ],
     "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "webpack-env"
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "typeRoots": [
+      "./src/typings",
+      "node_modules/@types/",
+      "node_modules/typescript/lib/"
     ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+    "sourceMap": true,
+    "removeComments": true,
+    "listFiles": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationDir": "./dist/typings",
+    "inlineSources": true,
+    "noImplicitAny": false,
+    "types": [
+      "node"
     ]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
   "exclude": [
-    "node_modules"
-  ]
+    "examples",
+    "node_modules",
+    "dist"
+  ],
+  "compileOnSave": false,
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  }
 }

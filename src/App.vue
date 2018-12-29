@@ -1,20 +1,28 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld />
+        <AceEditor ref="editor" :config="config" v-model="value"/>
     </div>
 </template>
 
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
-    import HelloWorld from './components/HelloWorld.vue';
+    import AceEditor from './components/AceEditor.vue';
 
     @Component({
         components: {
-            HelloWorld,
+            AceEditor,
         },
     })
     export default class App extends Vue {
+        public value = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A blanditiis dolor fugit inventore molestiae odio pariatur perspiciatis possimus praesentium quaerat quia quisquam, quos veniam. Id quaerat quisquam sit voluptas voluptatibus.';
+
+        public config = {
+            useVim: true
+        };
+
+        public mounted() {
+        }
+
     }
 </script>
 
@@ -25,6 +33,6 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
+        height: 200px;
     }
 </style>
