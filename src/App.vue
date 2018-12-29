@@ -17,7 +17,7 @@
         public value = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A blanditiis dolor fugit inventore molestiae odio pariatur perspiciatis possimus praesentium quaerat quia quisquam, quos veniam. Id quaerat quisquam sit voluptas voluptatibus.';
 
         public config = {
-            useVim: true
+            useVim: true,
         };
 
         public mounted() {

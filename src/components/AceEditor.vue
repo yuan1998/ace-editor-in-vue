@@ -12,9 +12,7 @@
     const defaultConfig = {
         lang: 'javascript',
         theme: 'monokai',
-        value: '',
         readOnly: false,
-        fullScreen: false,
         autoCompletion: false,
         showPrintMargin: false,
         useWrapMode: true,
@@ -23,17 +21,7 @@
         useVim: false,
         cursorPosition: {row: 0, column: 0},
         pagePosition: 0
-
     };
-
-    interface Config {
-        [key: string]: any,
-        cursorPosition: {
-            row: number,
-            column: number,
-        },
-        pagePosition: number
-    }
 
     @Component
     class AceEditor extends Vue {
@@ -47,7 +35,7 @@
             type: Object,
             default: {}
         })
-        public config?: Config;
+        public config?: object;
 
         @Prop({
             type: String,
@@ -78,7 +66,7 @@
 
             aceSession.setMode(`ace/mode/${cfg.lang}`);
             this.$ace.setTheme(`ace/theme/${cfg.theme}`);
-            this.$ace.setValue(cfg.value, 1);
+            this.$ace.setValue(this.value);
             this.$ace.setReadOnly(cfg.readOnly);
             aceSession.setTabSize(cfg.tabSize);
             aceSession.setUseSoftTabs(cfg.useSoftTabs);
@@ -100,10 +88,10 @@
             })
         }
 
-        public setCursorPosition(cfg: Config): void {
+        public setCursorPosition(cfg): void {
             const {cursorPosition, pagePosition} = cfg;
-            this.$ace.navigateTo(cursorPosition.row, cursorPosition.column);
-            this.$ace.scrollToRow(pagePosition);
+            cursorPosition && this.$ace.navigateTo(cursorPosition.row, cursorPosition.column);
+            pagePosition && this.$ace.scrollToRow(pagePosition);
         }
 
         public getCursorPosition(): object {
