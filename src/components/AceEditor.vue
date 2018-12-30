@@ -45,7 +45,10 @@
 
         public $ace;
 
+        private firstInitial = false;
+
         public mounted(): void {
+            this.firstInitial = true;
             this.init();
         }
 
@@ -54,11 +57,13 @@
         }
 
         private init(): void {
-
             const cfg = Object.assign({}, defaultConfig, this.config);
 
             this.$ace = ace.edit(this.editorId);
             const aceSession = this.$ace.getSession();
+
+            this.firstInitial && this.handleFirstInit();
+            this.handleInit();
 
             require(`brace/mode/${cfg.lang}`);
             require(`brace/theme/${cfg.theme}`);
@@ -84,7 +89,8 @@
             this.setCursorPosition(cfg);
 
             this.$ace.on('change', () => {
-                this.input();
+                this.handleInput();
+                this.handleChange();
             })
         }
 
@@ -111,10 +117,27 @@
             this.$ace.commands.removeCommand(name);
         }
 
-        @Emit()
-        input(): string {
+        @Emit('input')
+        handleInput(): string {
             return this.$ace.getValue();
         }
+
+        @Emit('firstInit')
+        handleFirstInit() {
+            this.firstInitial = false;
+            return this.$ace;
+        }
+
+        @Emit('init')
+        handleInit() {
+            return this.$ace;
+        }
+
+        @Emit('change')
+        handleChange() {
+            return this.$ace;
+        }
+
     }
 
     export default AceEditor;

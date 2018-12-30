@@ -1,10 +1,17 @@
 {
   "name": "vue-editor-ace",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Ace Editor Of Vue.",
   "author": "yuan1998 <chizhiyueshu@gmail.com>",
-  "main": "./dist/vueAceEditor.common.js",
+  "main": "dist/vueAceEditor.common.js",
+  "module": "dist/vueAceEditor.common.js",
   "license": "MIT",
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -34,5 +41,10 @@
   "bugs": {
     "url": "https://github.com/yuan1998/ace-editor-in-vue/issues"
   },
-  "homepage": "https://github.com/yuan1998/ace-editor-in-vue#readme"
+  "homepage": "https://github.com/yuan1998/ace-editor-in-vue#readme",
+  "keywords": [
+    "vue",
+    "editor",
+    "ace"
+  ]
 }
