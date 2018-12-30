@@ -95,6 +95,10 @@ npm install vue-editor-ace --save
         tabSize: 4,
         // enable vim keyboard
         useVim: false,
+        // enable emmet.
+        useEmmet: false,
+        // enable beautify code.
+        useBeautifyCode: false,
         // set cursor position.
         cursorPosition: {row: 0, column: 0},
         // set page position (scroll).
@@ -149,4 +153,9 @@ ace.addCommand({
 remove exists command
 ```javascript
 ace.removeCommand('Save-file');
+```
+#### beautifyCode
+reformat current editor code.
+```javascript
+ace.beautifyCode();
 ```

@@ -15,7 +15,13 @@ const lib = {
         }
     }
 };
-const dev = {
 
-};
-module.exports = process.env.NODE_ENV === 'development' ? dev : lib;
+module.exports = {
+    pages: {
+        index: {
+            entry: 'examples/main.ts',
+            template: 'examples/index.html',
+            filename: 'index.html'
+        }
+    }
+}

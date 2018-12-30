@@ -14,7 +14,8 @@
     "jsx": "preserve",
     "jsxFactory": "h",
     "typeRoots": [
-      "./src/typings",
+      "packages/typings",
+      "examples/typings",
       "node_modules/@types/",
       "node_modules/typescript/lib/"
     ],
@@ -26,10 +27,7 @@
     "declaration": true,
     "declarationDir": "./dist/typings",
     "inlineSources": true,
-    "noImplicitAny": false,
-    "types": [
-      "node"
-    ]
+    "noImplicitAny": false
   },
   "exclude": [
     "examples",
