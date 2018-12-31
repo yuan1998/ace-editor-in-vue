@@ -10,12 +10,10 @@ npm install vue-editor-ace --save
 1. import and sign it in components.
     ```javascript  
     ...
+    import Vue from 'vue';
     import AceEditor from 'vue-editor-ace';
     ...
-    
-    components: {
-        AceEditor,
-    }
+    Vue.use(AceEditor);
     ...
     ```
 2. use component.

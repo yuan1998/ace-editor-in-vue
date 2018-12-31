@@ -15,13 +15,11 @@ const lib = {
     }
 };
 
-const getRequestPath = (context , request) => {
-    context = context.replace(__dirname , '.');
+const getRequestPath = (context, request) => {
+    context = context.replace(__dirname + '/node_modules/', '');
 
-    return context + request.replace('./' , '/');
+    return context + request.replace('./', '/');
 };
-
-
 
 module.exports = {
     pages           : {
@@ -36,14 +34,14 @@ module.exports = {
         return {
             externals: [
                 (context, request, callback) => {
-
-                    if (/(brace)/m.test(request)) {
-                        return callback(null, 'commonjs ' + request);
+                    if (process.env.NODE_ENV === 'production') {
+                        if (/(brace)/m.test(request)) {
+                            return callback(null, 'commonjs ' + request);
+                        }
+                        if (/\/(brace|ace)/m.test(context)) {
+                            return callback(null, 'commonjs ' + getRequestPath(context, request));
+                        }
                     }
-                    if (/\/(brace|ace)/m.test(context)) {
-                        return callback(null, 'commonjs ' + getRequestPath(context , request));
-                    }
-
                     return callback();
                 },
             ]
