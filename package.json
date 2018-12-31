@@ -1,6 +1,6 @@
 {
   "name": "vue-editor-ace",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "description": "Ace Editor Of Vue.",
   "author": "yuan1998 <chizhiyueshu@gmail.com>",
   "main": "dist/vueAceEditor.umd.min.js",
