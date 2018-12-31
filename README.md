@@ -1,5 +1,7 @@
 # vue-editor-ace
 
+[中文](./readme-zh)
+
 ## install
 use npm or yarn install package.
 ```
