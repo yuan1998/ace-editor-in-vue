@@ -147,7 +147,7 @@ ace.addCommand({
     readOnly: true // false if this command should not apply in readOnly mode
 });
 ```
-##### addCommand
+##### removeCommand
 remove exists command
 ```javascript
 ace.removeCommand('Save-file');
