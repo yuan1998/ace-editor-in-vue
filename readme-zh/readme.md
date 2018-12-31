@@ -1,5 +1,6 @@
 # vue-editor-ace
-基于Vue 封装 Ace.
+基于Vue 封装 Ace.  
+自认英文水平不好,所有大家还是看中文吧...
 
 ## 开始
 安装package.
