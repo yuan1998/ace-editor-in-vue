@@ -1,5 +1,4 @@
 const lib = {
-    css             : { extract: false },
     configureWebpack: () => {
         return {
             entry    : './src/components/AceEditor.vue',
@@ -17,11 +16,29 @@ const lib = {
 };
 
 module.exports = {
-    pages: {
+    pages           : {
         index: {
-            entry: 'examples/main.ts',
+            entry   : 'examples/main.ts',
             template: 'examples/index.html',
             filename: 'index.html'
+        }
+    },
+    css             : { extract: false },
+    configureWebpack: () => {
+        return {
+            externals: [
+                (context, request, callback) => {
+
+                    if (/(brace)/m.test(request)) {
+                        return callback(null, 'commonjs ' + request);
+                    }
+                    if (/\/(brace|ace)/m.test(context)) {
+                        return callback(null, 'commonjs ' + request);
+                    }
+
+                    return callback();
+                },
+            ]
         }
     }
 }
