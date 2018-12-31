@@ -15,6 +15,14 @@ const lib = {
     }
 };
 
+const getRequestPath = (context , request) => {
+    context = context.replace(__dirname , '.');
+
+    return context + request.replace('./' , '/');
+};
+
+
+
 module.exports = {
     pages           : {
         index: {
@@ -33,7 +41,7 @@ module.exports = {
                         return callback(null, 'commonjs ' + request);
                     }
                     if (/\/(brace|ace)/m.test(context)) {
-                        return callback(null, 'commonjs ' + request);
+                        return callback(null, 'commonjs ' + getRequestPath(context , request));
                     }
 
                     return callback();
